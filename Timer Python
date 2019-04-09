@@ -1,0 +1,60 @@
+import datetime
+calender = [('Ocak', range(1, 31 + 1)),
+            ('Subat', range(1, 28 + 1)),
+            ('Mart', range(1, 31 + 1)),
+            ('Nısan', range(1, 30 + 1)),
+            ('Mayis', range(1, 31 + 1)),
+            ('Hazıran', range(1, 30 + 1)),
+            ('Temmuz', range(1, 31 + 1)),
+            ('Agustos', range(1, 31 + 1)),
+            ('Eylul', range(1, 30 + 1)),
+            ('Ekim', range(1, 31 + 1)),
+            ('Kasım', range(1, 30 + 1)),
+            ('Aralik', range(1, 31 + 1))]
+
+week = ['Pts', 'Sl', 'Crs', 'Pr', 'Cm', 'Cms', 'Pzr']
+
+def make_calendar(year, start_day):
+
+    start_pos = week.index(start_day)
+
+
+    if is_leap(year):
+        calender[1] = ('Subat', range(1, 29 + 1))
+
+    for month, days in calender:
+
+        print('{0} {1}'.format(month, year).center(20, ' '))
+
+        print(''.join(['{0:<3}'.format(w) for w in week]))
+        # Sıfır olmayan başlangıç konumu için boşluk ekle
+        print('{0:<3}'.format('')*start_pos, end='')
+
+        for day in days:
+            # Günleri yazar
+            print('{0:<3}'.format(day), end='')
+            start_pos += 1
+            if start_pos == 7:
+                print()
+                start_pos = 0
+        print('\n')
+
+def is_leap(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+
+
+k=input("Bir etkinlik girin \n1.Secenek Goster\n2.Secenek ekle \n3.senecek cıkar\nSayi girin:")
+
+yr=int(input('Yili girin:'))
+strtday=input('Gunu girin:')
+make_calendar(yr,strtday)
