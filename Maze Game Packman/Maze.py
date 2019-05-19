@@ -1,7 +1,7 @@
 import turtle
 import math
 import random
-
+import sys
 
 wn=turtle.Screen()
 wn.bgcolor("black")
@@ -156,18 +156,18 @@ level_1=[
 "X  XX        XXXXT  XXXXX",
 "X  XXX  XXXXXXXXXXXXXXXXX",
 "X         XXXXXXXXXXXXXXX",
-"X          E     XXXXXXXX",
+"X                XXXXXXXX",
 "XXXXXXXXXXXX     XXXXX  X",
 "XXXXXXXXXXXXXXX  XXXXX  X",
 "XXX  XXXXXXXXXX         X",
-"XXXE                    X",
+"XXXE                   TX",
 "XXX         XXXXXXXXXXXXX",
 "XXXXXXXXXX  XXXXXXXXXXXXX",
-"XXXXXXXXXX              X",
-"XX   XXXXX              X",
+"XXXXXXXXXX             TX",
+"XX  TXXXXX              X",
 "XX   XXXXXXXXXXXXXE XXXXX",
 "XX    YXXXXXXXXXXX  XXXXX",
-"XX          XXXX        X",
+"XX         TXXXX        X",
 "XXXXE                   X",
 "XXXXXXXXXXXXXXXXXXXXXXXXX"
 ]
@@ -244,6 +244,10 @@ while True:
     #Olumu kontrol et
     for dusman in dusmanlar:
         if oyuncu.carpisma(dusman):
-            print("Oyuncu Kaybetti")
+            sys.exit(print("Oyuncu Kaybetti"))
+
+        else:
+            continue
+
 #Burada tekrar güncelleme olucak
     wn.update()
